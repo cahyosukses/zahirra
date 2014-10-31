@@ -32,6 +32,15 @@ angular.module('zahirra', ['ionic', 'starter.controllers'])
         }
       }
     })
+  
+    .state('app.cart', {
+      url: "/cart",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/cart.html"
+        }
+      }
+    })  
 
     .state('app.products', {
       url: "/products",
@@ -52,6 +61,7 @@ angular.module('zahirra', ['ionic', 'starter.controllers'])
         }
       }
     });
+    
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/products');
 });

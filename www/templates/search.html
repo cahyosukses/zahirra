@@ -4,12 +4,23 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
       
+<!--
     <div class="list list-inset">
   <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
     <input type="text" placeholder="Search">
   </label>
 </div>
+-->
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="search" placeholder="Search">
+      </label>
+      <button class="button button-clear" ng-click="search()">
+        Refresh
+      </button>
+    </div>
       
   </ion-content>
 </ion-view>
