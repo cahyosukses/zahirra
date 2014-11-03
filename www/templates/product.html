@@ -4,23 +4,17 @@
             <div class="item item-avatar">
                 <img data-ng-src="{{ p.image }}" style="width: 100%;">
                 <h2 style="font-weight: bold;">{{ p.title }}</h2>
-                <p>Rp. {{ p.price }},- Dilihat : {{ p.clicked }}</p>
+                <p>Rp. {{ p.price }},- Dilihat : <strong>{{ p.clicked }}</strong></p>
             </div>
 
             <div class="item item-body">    
                 <img class="full-image image_list_product" data-ng-src="{{ p.image }}" style="width: 100%;">
                 <p>
-                    <strong>Deskripsi Produk</strong>
+                    <strong style="font-size: 14px;">Deskripsi Produk</strong>
                     <div data-ng-bind-html="p.decriptions"></div>
                 </p>
-                <p>
-                    <a href="#" class="subdued">1 Like</a>
-                    <a href="#" class="subdued">5 Comments</a>
-                </p>
-            </div>
-            <br/>
-            <a href="#/app/add_to_cart/{{ p.id }}" class="button button-positive button-full">B E L I</a>
-            <br/>
+            </div>            
+            <a href="#/app/add_to_cart/{{ p.id }}" class="button button-positive button-full">B E L I</a>            
             <div class="item tabs tabs-secondary tabs-icon-left">
                 <a class="tab-item" href="#">
                     <i class="icon ion-thumbsup"></i>

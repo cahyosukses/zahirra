@@ -43,17 +43,18 @@ angular.module('starter.controllers', ['ionic'])
 });
 
 function SearchCtrl($scope, $http, $ionicLoading) {
-    $scope.url = 'http://zahirra.com/android/products/SearchProducts'; // The url of our search
-
+    $scope.url = 'http://zahirra.com/android/products/SearchProducts'; // The url of our search    
     // The function that will be executed on button click (ng-click="search()")
     $scope.search = function() {
+        var keywords = $scope.keywords;
         $ionicLoading.show({
             template: 'Loading...'
         });
+
         // Create the http post request
         // the data holds the keywords
         // The request is a JSON request.
-        $http.get($scope.url, {"data": $scope.keywords}).success(function(result) {
+        $http.get($scope.url + '?q=' + keywords).success(function(result) {
             $scope.products = result;
 //            $scope.status = status;
 //            $scope.data = data;

@@ -55,3 +55,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/products');
 });
+
+//app.directive('imageonload', function() {
+//    return {
+//        restrict: 'A',
+//        link: function(scope, element, attrs) {
+//            element.bind('load', function() {
+//                alert('image is loaded');
+//            });
+//        }
+//    };
+//});
