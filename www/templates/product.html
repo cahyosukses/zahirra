@@ -4,11 +4,11 @@
             <div class="item item-avatar">
                 <img data-ng-src="{{ p.image }}" style="width: 100%;">
                 <h2 style="font-weight: bold;">{{ p.title }}</h2>
-                <p>Rp. {{ p.price }},-</p>
+                <p>Rp. {{ p.price }},- Dilihat : {{ p.clicked }}</p>
             </div>
 
             <div class="item item-body">    
-                <img class="full-image" data-ng-src="{{ p.image }}" style="width: 100%;">
+                <img class="full-image image_list_product" data-ng-src="{{ p.image }}" style="width: 100%;">
                 <p>
                     <strong>Deskripsi Produk</strong>
                     <div data-ng-bind-html="p.decriptions"></div>
