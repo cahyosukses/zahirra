@@ -1,43 +1,69 @@
-angular.module('starter.controllers', ['ionic'])
-        .controller('AppCtrl', function($scope) {
-})
-        .controller('ProductsCtrl', function($scope, $http, $ionicLoading) {
-//    this.getProducts = function($scope){
-    $ionicLoading.show({
-        template: 'Loading...'
-    });
+angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function($scope) {
 
-    $http.get("http://zahirra.com/android/products/load_lists")
-            .success(function(result) {
-        $scope.products = result;
-        $scope.$broadcast("scroll.refreshComplete");
-        $ionicLoading.hide();
-    });
-//    }
-})
+}).controller('HomeCtrl', function($scope, $http, $ionicLoading) {
 
-        .controller('ProductCtrl', function($http, $scope, $stateParams, $ionicLoading) {
+}).controller('ProductsCtrl', function($scope, $http, $ionicLoading, $ionicPopup, $filter) {
+//    $scope.reddit = new Reddit();
+//    $ionicLoading.show({
+//        template: 'Loading...'
+//    });
+//    $http.get("http://zahirra.com/android/products/load_lists").success(function(result) {
+//        $scope.products = result;
+//        $scope.$broadcast("scroll.refreshComplete");
+//        $ionicLoading.hide();
+//    });
+
+    var page = 1;
+    $scope.commits = [];
+    $scope.more = true;
+
+    $scope.loadGithubCommits = function() {
+
+        // Load the data from server zahirra
+        $http.get('http://zahirra.com/android/products/load_lists?page=' + page)
+                .success(function(commits, status, headers) {
+
+            // Check Link header to determine if more pages are available.
+            // If not, disable infinite scroll.
+//            if (headers('link').search('rel="next"') < 0) {
+//                $scope.more = false;
+//            }
+
+            // Push all of the commits from response into model.
+            angular.forEach(commits, function(commit) {
+                $scope.commits.push(commit);
+            });
+        }).error(function(data, status, headers) {
+
+            // Disable infinite scroll since we've got an error.
+            $scope.more = false;
+
+        }). finally(function() {
+
+            // On finish, increment to next page and alert infiniteScroll to close.
+            page++;
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
+    };
+
+
+}).controller('ProductCtrl', function($http, $scope, $stateParams, $ionicLoading) {
     var id = $stateParams.productId;
     $ionicLoading.show({
         template: 'Loading...'
     });
-
-    $http.get("http://zahirra.com/android/products/getDetailProduct/" + id)
-            .success(function(result) {
+    $http.get("http://zahirra.com/android/products/getDetailProduct/" + id).success(function(result) {
         $scope.product = result;
         $ionicLoading.hide();
     });
-})
-
-        .controller('SearchProductCtrl', function($http, $scope, $stateParams, $ionicLoading) {
+}).controller('ProductToCart', function($http, $scope, $stateParams, $ionicLoading) {
     var id = $stateParams.productId;
     $ionicLoading.show({
         template: 'Loading...'
     });
-
-    $http.get("http://zahirra.com/android/products/getDetailProduct/" + id)
-            .success(function(result) {
+    $http.get("http://zahirra.com/android/products/add_to_cart/" + id).success(function(result) {
         $scope.product = result;
+
         $ionicLoading.hide();
     });
 });
@@ -51,14 +77,8 @@ function SearchCtrl($scope, $http, $ionicLoading) {
             template: 'Loading...'
         });
 
-        // Create the http post request
-        // the data holds the keywords
-        // The request is a JSON request.
         $http.get($scope.url + '?q=' + keywords).success(function(result) {
             $scope.products = result;
-//            $scope.status = status;
-//            $scope.data = data;
-//            $scope.result = data; // Show result from server in our <pre></pre> element
             $ionicLoading.hide();
         }).error(function(data, status) {
             $scope.data = data || "Request failed";

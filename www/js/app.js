@@ -50,19 +50,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'ProductCtrl'
             }
         }
+    }).state('app.home', {
+        url: "/home",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/home.html",
+                controller: 'HomeCtrl'
+            }
+        }
     });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/products');
 });
-
-//app.directive('imageonload', function() {
-//    return {
-//        restrict: 'A',
-//        link: function(scope, element, attrs) {
-//            element.bind('load', function() {
-//                alert('image is loaded');
-//            });
-//        }
-//    };
-//});
