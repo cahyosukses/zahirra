@@ -2,7 +2,7 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
 
 }).controller('HomeCtrl', function($scope, $http, $ionicLoading) {
 
-}).controller('ProductsCtrl', function($scope, $http, $ionicLoading, $ionicPopup, $filter) {
+}).controller('ProductsCtrl', function($scope, $http, $ionicLoading, $ionicPopup) {
 //    $scope.reddit = new Reddit();
 //    $ionicLoading.show({
 //        template: 'Loading...'
@@ -13,11 +13,12 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
 //        $ionicLoading.hide();
 //    });
 
-    var page = 1;
+    var page = 10;
+    var start = 0;
     $scope.commits = [];
     $scope.more = true;
 
-    $scope.loadGithubCommits = function() {
+    $scope.loadProducts = function() {
 
         // Load the data from server zahirra
         $http.get('http://zahirra.com/android/products/load_lists?page=' + page)
@@ -25,9 +26,10 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
 
             // Check Link header to determine if more pages are available.
             // If not, disable infinite scroll.
-//            if (headers('link').search('rel="next"') < 0) {
-//                $scope.more = false;
-//            }
+
+            if (commits.length < 0) {
+                $scope.more = false;
+            }
 
             // Push all of the commits from response into model.
             angular.forEach(commits, function(commit) {
@@ -39,9 +41,8 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
             $scope.more = false;
 
         }). finally(function() {
-
             // On finish, increment to next page and alert infiniteScroll to close.
-            page++;
+            page = (page + 10);
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     };
@@ -86,5 +87,3 @@ function SearchCtrl($scope, $http, $ionicLoading) {
         });
     };
 }
-
-

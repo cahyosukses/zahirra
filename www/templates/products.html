@@ -9,7 +9,8 @@
                 <p>{{commit.kode}}, {{commit.title}}</p>
             </div>
         </div>-->
-
+        <br/>
+        <a href="#" rel="next"></a>
         <div class="card" data-ng-repeat="p in commits" style="width: 140px; float: left; height: 175px; box-shadow: 0px 3px 3px grey; margin-right: 1px; margin-top: -10px;">
             <div class="item item-thumbnail-center" style="height: 175px;">                
                 <a href="#/app/products/{{ p.id }}">
@@ -21,6 +22,6 @@
         </div>        
 
         <!-- Infinite Scroll is activated here to load if more pages exist. -->
-        <ion-infinite-scroll on-infinite="loadGithubCommits()" ng-if="more"></ion-infinite-scroll>
+        <ion-infinite-scroll on-infinite="loadProducts()" ng-if="more"></ion-infinite-scroll>
     </ion-content>
 </ion-view>
