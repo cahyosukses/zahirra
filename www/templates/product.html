@@ -4,7 +4,7 @@
             <div class="item item-avatar">
                 <img data-ng-src="{{ p.image }}" style="width: 100%;">
                 <h2 style="font-weight: bold;">{{ p.title }}</h2>
-                <p>Rp. {{ p.price }},- Dilihat : <strong>{{ p.clicked }}</strong></p>
+                <p>Rp. {{ p.price }},- Dilihat : <strong>{{ p.clicked }}</strong> Stock : {{ p.soldout }}</p>
             </div>
 
             <div class="item item-body">    
@@ -15,8 +15,8 @@
                 </p>                
             </div>   
             
-            <a href="#/app/add_to_cart/{{ p.id }}" class="button button-positive button-full">B E L I</a>            
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <a href="#/app/add_to_cart/{{ p.id }}" class="button button-balanced button-full">B E L I</a>            
+<!--            <div class="item tabs tabs-secondary tabs-icon-left">
                 <a class="tab-item" href="#">
                     <i class="icon ion-thumbsup"></i>
                     Like
@@ -29,7 +29,7 @@
                     <i class="icon ion-share"></i>
                     Share
                 </a>
-            </div>
+            </div>-->
         </div>
     </ion-content>
 </ion-view>
