@@ -1,35 +1,41 @@
-<ion-view title="Z A H I R R A">
-    <ion-content class="has-header">      
-        <div class="list card product_detail" data-ng-repeat="p in product">
-            <div class="item item-avatar">
-                <img data-ng-src="{{ p.image }}" style="width: 100%;">
-                <h2 style="font-weight: bold;">{{ p.title }}</h2>
-                <p>Rp. {{ p.price }},- <br/>Dilihat : {{ p.clicked }}<br/>Stock : {{ p.soldout }}</p>
-            </div>
+<ion-view title="Rincian Produk">
+    <ion-nav-bar class="bar-assertive">
+        <ion-nav-back-button class="button-icon ion-ios-arrow-back"></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-buttons side="right">        
+        <button menu-toggle="right" class="button button-icon icon ion-archive"></button>
+        <button menu-toggle="right" class="button button-icon icon ion-thumbsup"></button>
+    </ion-nav-buttons>
 
-            <div class="item item-body">    
-                <img class="full-image image_list_product" data-ng-src="{{ p.image }}" style="width: 100%;">
-                <p>
-                    <strong style="font-size: 14px;">Deskripsi Produk</strong>
-                <div data-ng-bind-html="p.decriptions"></div>
-                </p>                
-            </div>   
-            
-            <a href="#/app/add_to_cart/{{ p.id }}" class="button button-balanced button-full">B E L I</a>            
-<!--            <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-thumbsup"></i>
-                    Like
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-chatbox"></i>
-                    Comment
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-share"></i>
-                    Share
-                </a>
-            </div>-->
+    <ion-content class="has-header">      
+        <div data-ng-repeat="p in product" style="padding: 10px;">
+            <div style="padding: 10px;">                
+                <span style="font-weight: bold; font-size: 20px;">{{ p.title }}</span>
+                <table style="margin-bottom: 10px; font-size: 11px;">
+                    <tr>
+                        <td>Rp. {{ p.price }},- </td>
+                        <td>Dilihat : {{ p.clicked }}</td>
+                        <td>Stock : {{ p.soldout }}</td>
+                    </tr>
+                </table>                
+            </div>
+            <div class="item item-image">    
+                <img ng-src="{{ p.image }}">
+            </div>
+            <div>
+                <a href="#" ng-click="login()" class="button button-stable button-block">SHARE</a>
+                <a href="#/app/cart" class="button button-balanced button-block">BELI</a>
+            </div>
+            <div>
+                <strong style="font-size: 14px; margin-top: 20px">Deskripsi Produk</strong>
+                <div id="deskripsi" style="height: 50px; overflow: hidden; word-wrap: break-word;" data-ng-bind-html="p.decriptions"></div>
+                <center>
+                    <a ng-click="showDetail()" href="#"><span class="ion-chevron-down"></span></a>                
+                </center>
+            </div>
+            <div style="font-size: 10px; text-align: center; color: #cccccc; margin-top: 30px;">
+                Last Update Price : 25 Maret 2015, 11:05 WIB
+            </div>
         </div>
     </ion-content>
 </ion-view>

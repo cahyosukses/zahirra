@@ -1,14 +1,12 @@
 <ion-view title="Z A H I R R A">
-    <ion-nav-buttons side="left">
+    <ion-nav-buttons side="left">        
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>        
     </ion-nav-buttons>
-    <ion-content class="has-header" style="background: #ccc;">      
-        <div style="padding: 10px;">
-            <img src="http://zahirra.com/upload/2014/busana/400x400__01_901538.jpg" width="100%">
-            <a href="#/app/products" class="button button-positive button-full">Busana Wanita</a>
-            <a href="#/app/products" class="button button-balanced button-full">Busana Pria</a>
-            <a href="#/app/products" class="button button-assertive button-full">Busana Anak</a>
-            <a href="#/app/products" class="button button-royal button-full">Sneaker Shoes</a>
-        </div>
+    <ion-nav-buttons side="right">        
+        <a menu-toggle="right" class="button button-icon icon ion-android-search" href="#/app/search"></a>        
+        <button menu-toggle="right" class="button button-icon icon ion-android-options" ng-click="showAlert()"></button>        
+    </ion-nav-buttons>
+    <ion-content class="has-header" style="background: #fff;">      
+        <div style="padding: 10px;"></div>
     </ion-content>
 </ion-view>

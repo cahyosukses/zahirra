@@ -24,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: "/search",
         views: {
             'menuContent': {
-                templateUrl: "templates/search.html"
+                templateUrl: "templates/search.html"                
             }
         }
     }).state('app.cart', {
@@ -48,6 +48,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
             'menuContent': {
                 templateUrl: "templates/product.html",
                 controller: 'ProductCtrl'
+            }
+        }
+    }).state('app.categories', {
+        url: "/product_categories/:categoryId/:categoryName",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/product_categories.html",
+                controller: 'ProductPercategoriesCtrl'
             }
         }
     }).state('app.home', {

@@ -1,17 +1,18 @@
-<?php 
+<?php
+
 include('../includes/config.php');
 
-if(isset($_GET['id'])){
-$status = $_GET['id'];
+if (isset($_GET['id'])) {
+    $status = $_GET['id'];
 }
-$query="select * from affiliante where id =  '$id'";
-$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+$query = "select * from affiliante where id =  '$id'";
+$result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
 $arr = array();
-if($result->num_rows > 0) {
-	while($row = $result->fetch_assoc()) {
-		$arr[] = $row['title'];	
-	}
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $arr[] = $row['title'];
+    }
 }
 
 # JSON-encode the response
