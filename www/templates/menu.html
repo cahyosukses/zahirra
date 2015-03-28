@@ -19,6 +19,9 @@
         </header>
         <ion-content class="has-header">
             <ion-list>
+                <ion-item nav-clear menu-close href="#/app/home">
+                    <i class="ion-home"></i> Beranda
+                </ion-item>
                 <div ng-controller="HomeCtrl">
                     <ion-item ng-repeat="c in products_per_categorie" nav-clear menu-close href="#/app/product_categories/{{ c.id }}/{{ c.title }}">
                         <i class="ion-tshirt"></i> {{ c.title }}

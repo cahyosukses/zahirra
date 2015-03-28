@@ -9,7 +9,7 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
     $scope.showAlert = function() {
         var alertPopup = $ionicPopup.alert({
             title: 'Tentang kami',
-            template: '<center><strong style="font-size: 20px;">Zahirra Online Shop</strong></br>Version 1.0</center>'
+            template: '<center><strong style="font-size: 20px;">Zahirra Online Shop</strong></br>Version 0.0.1</center>'
         });
         console.log('Alert Tentang Kami');
     };

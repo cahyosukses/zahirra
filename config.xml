@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.zahirra462220" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>zahirra</name>
+<widget id="com.ionicframework.zahirra" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Zahirra</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Zahirra Online Shop Version 0.0.1
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="info@zahirra.com" href="http://zahirra.com/">
+      Zahirra, Inc
     </author>
   <content src="index.html"/>
   <access origin="*"/>
