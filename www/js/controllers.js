@@ -173,8 +173,6 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
         console.log('Show Detail Product By ID' + id);
     });
 
-// Form data for the login modal
-    $scope.shareData = {};
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/share.html', {
