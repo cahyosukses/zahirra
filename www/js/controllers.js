@@ -189,18 +189,18 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
     // An alert dialog
     $scope.showInfoThumbs = function() {
         var alertPopup = $ionicPopup.alert({
-            title: 'Tentang kami',
+            title: 'Like',
             template: '<center><strong style="font-size: 20px;">Zahirra Online Shop</strong></br>Version 0.0.1</center>'
         });
-        console.log('Alert Tentang Kami');
+        console.log('Like');
     };
     // An alert dialog
     $scope.showInfoDownload = function() {
         var alertPopup = $ionicPopup.alert({
-            title: 'Tentang kami',
+            title: 'Download',
             template: '<center><strong style="font-size: 20px;">Zahirra Online Shop</strong></br>Version 0.0.1</center>'
         });
-        console.log('Alert Tentang Kami');
+        console.log('Download Image');
     };
 
 }).controller('ProductToCart', function($http, $scope, $stateParams, $ionicLoading) {
