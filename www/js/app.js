@@ -28,10 +28,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('app.cart', {
-        url: "/cart",
+        url: "/cart/:productId",
         views: {
             'menuContent': {
-                templateUrl: "templates/cart.html"
+                templateUrl: "templates/cart.html",
+                controller: 'ProductToCart'
             }
         }
     }).state('app.products', {
