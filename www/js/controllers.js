@@ -153,7 +153,7 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
         }, 1000);
     };
 
-}).controller('ProductCtrl', function($http, $scope, $stateParams, $ionicLoading, $ionicModal) {
+}).controller('ProductCtrl', function($http, $scope, $stateParams, $ionicLoading, $ionicModal, $ionicPopup) {
     var id = $stateParams.productId;
     $ionicLoading.show({
         template: 'Loading...'
@@ -165,7 +165,7 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
     });
 
 // Form data for the login modal
-    $scope.loginData = {};
+    $scope.shareData = {};
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/share.html', {
@@ -176,24 +176,31 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
     });
 
     // Triggered in the login modal to close it
-    $scope.closeLogin = function() {
+    $scope.closeShare = function() {
         $scope.modal.hide();
     };
 
     // Open the login modal
-    $scope.login = function() {
+    $scope.share = function() {
         $scope.modal.show();
     };
 
-    // Perform the login action when the user submits the login form
-    $scope.doLogin = function() {
-        console.log('Doing login ', $scope.loginData);
 
-        // Simulate a login delay. Remove this and replace with your login
-        // code if using a login system
-        $timeout(function() {
-            $scope.closeLogin();
-        }, 1000);
+    // An alert dialog
+    $scope.showInfoThumbs = function() {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Tentang kami',
+            template: '<center><strong style="font-size: 20px;">Zahirra Online Shop</strong></br>Version 0.0.1</center>'
+        });
+        console.log('Alert Tentang Kami');
+    };
+    // An alert dialog
+    $scope.showInfoDownload = function() {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Tentang kami',
+            template: '<center><strong style="font-size: 20px;">Zahirra Online Shop</strong></br>Version 0.0.1</center>'
+        });
+        console.log('Alert Tentang Kami');
     };
 
 }).controller('ProductToCart', function($http, $scope, $stateParams, $ionicLoading) {

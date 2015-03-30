@@ -3,8 +3,8 @@
         <ion-nav-back-button class="button-icon ion-ios-arrow-back"></ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-buttons side="right">        
-        <button menu-toggle="right" class="button button-icon icon ion-archive"></button>
-        <button menu-toggle="right" class="button button-icon icon ion-thumbsup"></button>
+        <button menu-toggle="right" class="button button-icon icon ion-archive" ng-click="showInfoDownload()"></button>
+        <button menu-toggle="right" class="button button-icon icon ion-thumbsup" ng-click="showInfoThumbs()"></button>
     </ion-nav-buttons>
 
     <ion-content class="has-header">      
@@ -23,7 +23,7 @@
                 <img ng-src="{{ p.image }}">
             </div>
             <div>
-                <a href="#" ng-click="login()" class="button button-stable button-block">SHARE</a>
+                <a href="#" ng-click="shareData()" class="button button-stable button-block">SHARE</a>
                 <a href="#/app/cart" class="button button-balanced button-block">BELI</a>
             </div>
             <div>
@@ -31,7 +31,7 @@
                 <div id="deskripsi" data-ng-bind-html="p.decriptions"></div>
             </div>
             <div style="font-size: 10px; text-align: center; color: #cccccc; margin-top: 30px;">
-                Last Update Price : 25 Maret 2015, 11:05 WIB
+                Last Update Price : {{ p.update_at }}
             </div>
         </div>
     </ion-content>
