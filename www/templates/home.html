@@ -7,7 +7,16 @@
         <button menu-toggle="right" class="button button-icon icon ion-android-options" ng-click="showAlert()"></button>        
     </ion-nav-buttons>
     <ion-content class="has-header" style="background: #99ff33;">      
-        <div style="padding: 10px;"></div>
+        <br/>
+        <div class="card" data-ng-repeat="p in show_new_products" style="width: 140px; float: left; height: 175px; box-shadow: 0px 3px 3px grey; margin-right: 1px; margin-top: -10px;">
+            <div class="item item-thumbnail-center" style="height: 175px;">                
+                <a href="#/app/products/{{ p.id }}">
+                    <img ng-src="{{ p.image }}" style="width: 100%;" alt="Loading...">
+                </a>
+                <p style="position: absolute; bottom: 15px;">{{ p.kode }}</p>
+                <p style="font-weight: bold; position: absolute; bottom: 2px; text-align: center;">Rp. {{ p.price }}</p>                                
+            </div>
+        </div>        
     </ion-content>
     <ion-footer-bar align-title="left" class="bar-assertive">
         <div class="buttons">

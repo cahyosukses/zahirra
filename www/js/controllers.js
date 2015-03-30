@@ -1,8 +1,17 @@
 angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function($scope) {
 
-}).controller('HomeCtrl', function($scope, $http, $ionicPopup, $ionicPlatform, $state) {
+}).controller('HomeCtrl', function($scope, $http, $ionicPopup, $ionicPlatform, $state, $ionicLoading) {
+    $ionicLoading.show({
+        template: 'Loading...'
+    });
+
     $http.get("http://zahirra.com/android/products/get_categories/").success(function(result) {
         $scope.products_per_categorie = result;
+    });
+
+    $http.get("http://zahirra.com/android/products/get_new_products/").success(function(result) {
+        $scope.show_new_products = result;
+        $ionicLoading.hide();
     });
 
     // An alert dialog
