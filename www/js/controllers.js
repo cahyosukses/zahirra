@@ -215,7 +215,7 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
     $ionicLoading.show({
         template: 'Loading...'
     });
-    $http.get("http://zahirra.com/android/products/add_to_cart/" + id).success(function(result) {
+    $http.get("http://zahirra.com/android/products/load_cart/" + id).success(function(result) {
         $scope.carts = result;
         $ionicLoading.hide();
         console.log('Add to Cart By ID ' + id);
