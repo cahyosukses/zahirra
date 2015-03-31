@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function($scope) {
+angular.module('starter.controllers', ['ionic', 'ngCordova']).controller('AppCtrl', function($scope) {
 
 }).controller('HomeCtrl', function($scope, $http, $ionicPopup, $ionicPlatform, $state, $ionicLoading) {
     $ionicLoading.show({
@@ -210,15 +210,16 @@ angular.module('starter.controllers', ['ionic']).controller('AppCtrl', function(
         console.log('Download Image');
     };
 
-}).controller('ProductToCart', function($http, $scope, $stateParams, $ionicLoading) {
+}).controller('ProductToCart', function($http, $scope, $stateParams, $ionicLoading, $cordovaDevice) {
+    var uuid = $cordovaDevice.getDevice();
     var id = $stateParams.productId;
     $ionicLoading.show({
         template: 'Loading...'
     });
-    $http.get("http://zahirra.com/android/products/load_cart/" + id).success(function(result) {
+    $http.get("http://zahirra.com/android/products/add_to_cart/" + id).success(function(result) {
         $scope.carts = result;
         $ionicLoading.hide();
-        console.log('Add to Cart By ID ' + id);
+        console.log('Add to Cart By ID ' + id + uuid);
     });
 }).controller('SearchCtrl', function($http, $scope, $stateParams, $ionicLoading, $rootScope) {
     $rootScope.products = [];
